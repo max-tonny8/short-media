@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Demo from './components/demo';
+import Demo from './container/Demo';
 
 ReactDOM.render(
   <Demo />,
