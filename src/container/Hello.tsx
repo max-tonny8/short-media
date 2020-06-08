@@ -3,10 +3,10 @@ import { Dispatch } from 'redux';
 import Hello from '../components/Hello';
 
 import * as actions from '../actions';
-import { StoreState } from '../types/index';
+import { IStoreState } from '../types/index';
 
 
-export function mapStateToProps({ enthusiasmLevel, languageName }:StoreState) {
+export function mapStateToProps({ enthusiasmLevel, languageName }:IStoreState) {
   return {
     enthusiasmLevel,
     name: languageName,
