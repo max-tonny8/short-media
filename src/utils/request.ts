@@ -1,1 +1,1 @@
-import * as axios from 'axios'
+import { AxiosResponse, AxiosRequestConfig } from 'axios'
