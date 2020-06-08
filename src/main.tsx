@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Demo from './container/Demo';
-
+import App from './container/App';
+import 'amfe-flexible';
+import "./style/main.scss";
 ReactDOM.render(
-  <Demo />,
+  <App />,
   document.getElementById('root') as HTMLElement,
 );

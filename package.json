@@ -4,6 +4,7 @@
   "description": "a short video application develope on the framework React + TypeScript ",
   "main": "./src/index.tsx",
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
@@ -45,6 +46,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "ora": "^4.0.3",
     "postcss-loader": "^3.0.0",
+    "postcss-pxtorem": "^5.1.1",
     "prettier": "^2.0.5",
     "progress-bar-webpack-plugin": "^2.1.0",
     "sass-loader": "^8.0.2",
@@ -76,9 +78,6 @@
       "prettier --trailing-comma es5 --single-quote --write",
       "eslint --ignore-path .eslintignore",
       "git add "
-    ],
-    "src/**/*.{css,scss}": [
-      "stylelint --config src/stylelint.config.json"
     ]
   },
   "keywords": [

@@ -11,7 +11,7 @@ const { isProduction } = require("./utils");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const webpackBaseConfig = {
-  entry: path.resolve(__dirname, "../src/index.tsx"),
+  entry: path.resolve(__dirname, "../src/main.tsx"),
   output: {
     filename: "[name]_[hash:16].js",
     path: path.resolve(__dirname, "../dist")

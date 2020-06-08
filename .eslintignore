@@ -3,3 +3,4 @@ config/*.js
 dll/
 src/assets
 node_modules/
+tsconfig.json
