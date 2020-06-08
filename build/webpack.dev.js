@@ -10,7 +10,7 @@ const devConfig = merge(baseConfig, {
     module: {
         rules: [
             {
-                test: /\.scss$/,
+                test: /\.s?css$/,
                 use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
             }
         ]

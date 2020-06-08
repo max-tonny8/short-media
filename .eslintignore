@@ -1,3 +1,5 @@
 build/*.js
 config/*.js
+dll/
 src/assets
+node_modules/

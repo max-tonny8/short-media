@@ -6,9 +6,10 @@ module.exports = {
     entry: {
         framework: [
             "redux",
-             "react-redux",
+            "react-redux",
             "react", 
-            "react-dom"]
+            "react-dom"
+        ]
     },
     output: {
         filename: "[name].dll.js",

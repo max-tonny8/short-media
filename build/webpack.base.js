@@ -55,7 +55,7 @@ const webpackBaseConfig = {
     }),
     new progressBarPlugin(),
     new htmlWebpackPlugin({
-      title: "React + typescript",
+      title: "micro video",
       template: path.resolve(__dirname, "../public/index.html"),
       inject: "body",
       minify: {
