@@ -53,7 +53,7 @@ class TabBar extends React.Component<RouteComponentProps, IState> {
       }
     )
   }
-  render(): React.ReactNode {
+  render(): React.ReactElement {
     const lists = this.state.list
     return (
       <ul className="tab-bar-wrapper">
