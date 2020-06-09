@@ -14,7 +14,7 @@ interface IState {
 }
 export default class NavBar extends React.Component<IProps, IState> {
   public state = {
-    activeName: 1,
+    activeName: 2,
   }
   private updateActiveName(
     event: React.MouseEvent<HTMLLIElement>,

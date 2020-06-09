@@ -1,0 +1,15 @@
+.not-found-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    .not-found-tips {
+        font-size: 7px;
+        margin-top: 20px;
+        color: #82a7fc;
+    }
+}
