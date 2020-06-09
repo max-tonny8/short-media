@@ -1,0 +1,17 @@
+.tab-bar-wrapper {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    box-sizing: border-box;
+    height: 25px;
+    line-height: 25px;
+    font-size: 7px;
+    color: #ffffff;
+    background-color: rgba($color: #000000, $alpha: 1.0);
+    .nav-item {
+        list-style-type: none;
+    }
+}
