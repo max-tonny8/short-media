@@ -1,7 +1,6 @@
 import * as React from 'react'
 import './index.scss'
 import NavBar from '@/components/NavBar'
-import videoUrl from '@/assets/demo.mp4'
 
 import { getVideoList } from '@/api/index.ts'
 interface IAttrObject {
@@ -28,7 +27,7 @@ export default class HotVideo extends React.Component<{}, IState> {
         type: 2,
       },
     ],
-    videoData: { videoUrl: videoUrl, imgUrl: '' },
+    videoData: { videoUrl: '', imgUrl: '' },
   }
   public componentDidMount() {
     this.getVideoData()
@@ -56,7 +55,7 @@ export default class HotVideo extends React.Component<{}, IState> {
           src={videoUrl}
           poster={imgUrl}
           autoPlay
-          controls
+          onEnded={() => this.getVideoData()}
           className="video-player"
         ></video>
       </div>

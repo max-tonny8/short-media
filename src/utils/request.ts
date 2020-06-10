@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, AxiosInstance } from 'axios'
 
 axios.defaults.withCredentials = true
 const options: AxiosRequestConfig = {
-  timeout: 1000,
+  timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
   },
