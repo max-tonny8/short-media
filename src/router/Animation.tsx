@@ -11,7 +11,7 @@ const AnimatedSwitch: React.SFC = (props) => {
         <TransitionGroup>
           <CSSTransition
             key={location.key}
-            classNames={'fade'}
+            classNames={'slide-fade'}
             timeout={300}
           >
             <Switch location={location}>{children}</Switch>

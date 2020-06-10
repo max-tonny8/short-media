@@ -21,19 +21,19 @@ class TabBar extends React.Component<RouteComponentProps, IState> {
         type: 1,
       },
       {
-        name: '二次元',
+        name: '最新',
         pathname: '/comic',
         type: 2,
       },
       {
-        name: '科技',
+        name: '明星',
         pathname: '/teachnology',
-        type: 3,
+        type: 4,
       },
       {
-        name: '我',
+        name: '二次元',
         pathname: '/mine',
-        type: 4,
+        type: 6,
       },
     ],
   }

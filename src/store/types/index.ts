@@ -1,4 +1,6 @@
 export interface IStoreState {
-    languageName: string;
-    enthusiasmLevel: number;
+  videoData: {
+    imgUrl: string
+    videoUrl: string
+  }
 }
