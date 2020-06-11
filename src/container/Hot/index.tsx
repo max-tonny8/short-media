@@ -44,7 +44,7 @@ export default class HotVideo extends React.Component<{}, IState> {
         entries.forEach((entry) => {
           if (entry.intersectionRatio === 1) {
             //  设置currentSrc
-            const node = entry.target as HTMLImageElement
+            const node = entry.target as HTMLVideoElement
             console.log(`node is ============> ${JSON.stringify(node.src)}`)
             this.setCurPlaySrc(node.src)
             return
