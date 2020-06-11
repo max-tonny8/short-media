@@ -17,9 +17,13 @@ interface IState {
   tabList: Array<IAttrObject>
   videoList: Array<IVideoAttr>
   currentSrc: string
-  scrollRef: any
 }
 export default class HotVideo extends React.Component<{}, IState> {
+  constructor(props: any) {
+    super(props)
+    this.scrollRef = React.createRef()
+  }
+  private scrollRef: any
   public state: Readonly<IState> = {
     tabList: [
       {
@@ -33,7 +37,6 @@ export default class HotVideo extends React.Component<{}, IState> {
     ],
     videoList: [],
     currentSrc: '',
-    scrollRef: React.createRef(),
   }
   public componentWillMount() {
     this.getVideoData()
@@ -49,6 +52,7 @@ export default class HotVideo extends React.Component<{}, IState> {
             this.setCurPlaySrc(node.src)
             return
           }
+          this.setCurPlaySrc('')
         })
       },
       {
@@ -58,54 +62,45 @@ export default class HotVideo extends React.Component<{}, IState> {
     )
     setTimeout(() => {
       document
-      .querySelectorAll('.video-player')
-      .forEach((video) => observerVideo.observe(video))
-    },1000)
-
-    // console.log(document
-    //   .querySelectorAll('.video-player'))
-    console.log(`执行完毕 interSection observer`)
+        .querySelectorAll('.video-player')
+        .forEach((video) => observerVideo.observe(video))
+    }, 1000)
   }
   private setCurPlaySrc(src: string): void {
     this.setState({
       currentSrc: src,
     })
   }
-  private getVideoData(): void {
-    getVideoList({ msg: 1 }).then((res) => {
+  public getVideoData = () => {
+    getVideoList({ msg: 2 }).then((res) => {
       const data = res.data.match(
         /https?:\/\/(.+\/)+.+(\.(swf|avi|flv|mpg|rm|mov|wav|asf|3gp|mkv|rmvb|mp4|jpg))/gi
       )
       const videoList: Array<IVideoAttr> = JSON.parse(
         JSON.stringify(this.state.videoList)
       )
+
       videoList.push({
-        imgUrl: data[0],
-        videoUrl: data[1],
-      },{
         imgUrl: data[0],
         videoUrl: data[1],
       })
       this.setState({
+        currentSrc: data[1],
         videoList: videoList,
       })
     })
   }
-  protected translateParent(): void {
-    const parent: HTMLDivElement = this.state.scrollRef.current
+  protected translateParent = () => {
+    const parent: HTMLDivElement = this.scrollRef.current
     const clientHeight: string = parent.getBoundingClientRect().height + 'px'
-    console.log('121')
+    parent.style.transform = `translateY(0, -${clientHeight}, 0)`
   }
   render(): React.ReactElement {
     const { videoList } = this.state
     return (
       <div className="hot-video-wrapper">
         <NavBar tabList={this.state.tabList} />
-        <div
-          className="player-wrapper"
-          id="scrollView"
-          ref={this.state.scrollRef}
-        >
+        <div className="player-wrapper" id="scrollView" ref={this.scrollRef}>
           {videoList.map((item, index) => {
             return (
               <VideoItem
