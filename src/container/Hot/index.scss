@@ -1,13 +1,11 @@
 .hot-video-wrapper {
     width: 100%;
     height: 100%;
-    background-color: rgba($color: #000000, $alpha: 0.3);
+    background-color: rgba($color: #000000, $alpha: 1.0 );
 
-    .video-player {
-        display: inline-block;
+    .player-wrapper {
         width: 100%;
         height: calc(100% - 25px);
-        object-fit: fill;
-        border-radius: 5px;
+        overflow-y: auto;
     }
 }

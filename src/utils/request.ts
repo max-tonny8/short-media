@@ -10,7 +10,6 @@ const options: AxiosRequestConfig = {
 const service: AxiosInstance = axios.create(options)
 service.interceptors.request.use(
   (config) => {
-    console.log(`^^^^`, config)
     return config
   },
   (error) => {}
