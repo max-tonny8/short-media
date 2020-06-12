@@ -21,9 +21,9 @@ interface IState {
 export default class HotVideo extends React.Component<{}, IState> {
   constructor(props: any) {
     super(props)
-    this.scrollRef = React.createRef()
+    this.scrollRef = React.createRef<HTMLDivElement>()
   }
-  private scrollRef: any
+  private scrollRef
   public state: Readonly<IState> = {
     tabList: [
       {
@@ -48,7 +48,6 @@ export default class HotVideo extends React.Component<{}, IState> {
           if (entry.intersectionRatio === 1) {
             //  设置currentSrc
             const node = entry.target as HTMLVideoElement
-            console.log(`node is ============> ${JSON.stringify(node.src)}`)
             this.setCurPlaySrc(node.src)
             return
           }
@@ -76,14 +75,12 @@ export default class HotVideo extends React.Component<{}, IState> {
       const data = res.data.match(
         /https?:\/\/(.+\/)+.+(\.(swf|avi|flv|mpg|rm|mov|wav|asf|3gp|mkv|rmvb|mp4|jpg))/gi
       )
-      const videoList: Array<IVideoAttr> = JSON.parse(
-        JSON.stringify(this.state.videoList)
-      )
-
-      videoList.push({
-        imgUrl: data[0],
-        videoUrl: data[1],
-      })
+      const videoList = [
+        {
+          imgUrl: data[0],
+          videoUrl: data[1],
+        },
+      ]
       this.setState({
         currentSrc: data[1],
         videoList: videoList,
@@ -91,9 +88,11 @@ export default class HotVideo extends React.Component<{}, IState> {
     })
   }
   protected translateParent = () => {
-    const parent: HTMLDivElement = this.scrollRef.current
-    const clientHeight: string = parent.getBoundingClientRect().height + 'px'
-    parent.style.transform = `translateY(0, -${clientHeight}, 0)`
+    if(this.scrollRef.current) {
+      const parent: HTMLDivElement = this.scrollRef.current
+      const clientHeight: string = parent.getBoundingClientRect().height + 'px'
+      parent.style.transform = `translateY(0, -${clientHeight}, 0)`
+    }
   }
   render(): React.ReactElement {
     const { videoList } = this.state

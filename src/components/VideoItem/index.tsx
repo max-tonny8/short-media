@@ -10,14 +10,14 @@ interface IProps {
 }
 
 export default class VideoItem extends React.Component<IProps, {}> {
-  private videoRef: any
+  private videoRef
   constructor(props: IProps) {
     super(props)
-    this.videoRef = React.createRef()
+    this.videoRef = React.createRef<HTMLVideoElement>()
   }
   public componentDidUpdate(nextProps: IProps, nextState: any) {
     if (nextProps.currentSrc && nextProps.currentSrc === nextProps.videoUrl) {
-      this.videoRef.current.play()
+      this.videoRef.current!.play()
     }
   }
   private videoEnd(): void {
